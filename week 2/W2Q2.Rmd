@@ -1,0 +1,9 @@
+---
+title: "Q2_text_mining"
+author: "Andreas Lloyd"
+date: "3 May 2016"
+output: html_document
+---
+
+Q2
+
