@@ -14,7 +14,8 @@ def get_url_info(url, type):
 		return xml_res
 	if type == "HTML":
 		html_res = BeautifulSoup(raw_page) # parsing result for HTML
-		return html_res
+		
+		return str(html_res)
 
 # Calling on each URL
 def scrape_yo_booty(url_list, type, output_file):
@@ -40,10 +41,11 @@ def scrape_yo_booty(url_list, type, output_file):
 				failed_file.close()
 
         # Blank results for memory
-        if i % 10000 == 0 and i != 0:
-        	np.savetxt(output_file, scrape_results, delimiter=',', fmt='%s')
-        	scrape_results = []
-
+		if i % 10000 == 0 and i != 0:
+			np.savetxt(output_file, scrape_results, delimiter=',', fmt='%s')
+			scrape_results = []
+    
+	#print scrape_results
 	np.savetxt(output_file, scrape_results, delimiter=',', fmt='%s')
 
 # Loading the URLs and begining to retrieve data
@@ -63,4 +65,4 @@ def scrape_the_web(argv):
 
 # Taking arguments from command line to initiate
 if __name__ == '__main__':
-    scrape_the_web(sys.argv[1:])
+	scrape_the_web(sys.argv[1:])
